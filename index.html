@@ -132,3 +132,29 @@ function filterAll(){const q=document.getElementById('q').value.toLowerCase().tr
 document.getElementById('q').addEventListener('input',filterAll);
 </script>
 </nav>
+<script>
+const featured=[
+  {name:"Tortuga-Guardian",desc:"Sensor IoT de microplástico para reservas marinhas.",lang:"C",url:"https://github.com/gypsylab8/Tortuga-Guardian",tags:["IoT","microplástico","marinho"]},
+  {name:"Papiba",desc:"Ambiente lúdico para crianças (#perfidinha2021).",lang:"JavaScript",url:"https://github.com/gypsylab8/Papiba",tags:["educação","lúdico"]},
+  {name:"cidadelas_automatizadas",desc:"Cidadelas automatizadas.",lang:"C++",url:"https://github.com/gypsylab8/cidadelas_automatizadas",tags:["automação"]},
+  {name:"gabirusUrbanus",desc:"Robôs seguidores de sombra e luz (Arduino).",lang:"C++",url:"https://github.com/guimasan/gabirusUrbanus",tags:["robótica","oficina"]},
+  {name:"maedagua-iara",desc:"Mãe d'Água - IARA: monitoramento hídrico.",lang:"HTML",url:"https://github.com/guimasan/maedagua-iara",tags:["água","ciência cidadã"]},
+  {name:"EEO",desc:"Experimentações Eletro-Orgânicas.",lang:"Arduino",url:"https://github.com/guimasan/EEO",tags:["bioarte"]}
+];
+document.getElementById('f').innerHTML=featured.map(p=>{
+  const author=p.url.includes('guimasan')?'guimasan':'gypsylab8';
+  const img=`https://opengraph.githubassets.com/1/${author}/${p.name}`;
+  return `<div class="feat"><div class="thumb"><img src="${img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.style.background='var(--imgbg)';this.style.display='none'"></div><div class="body"><h3><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></h3><p>${p.desc}</p><div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}<span class="chip">${p.lang}</span></div></div></div>`;
+}).join('');
+const themes=[
+  {icon:"🧠",title:"Neurociência & Biofeedback",desc:"EMG, neurofeedback, interfaces corpo-máquina."},
+  {icon:"🤖",title:"Robótica & Automação",desc:"UGV, drones, robôs seguidores, cidadelas."},
+  {icon:"💧",title:"Ciência Cidadã & Água",desc:"Mãe d'Água, microplásticos, monitoramento."},
+  {icon:"🎨",title:"Arte Eletrônica",desc:"Transdutores, luminários, eletro-orgânica."},
+  {icon:"🌱",title:"Sustentabilidade",desc:"T-Box, DustDuino, ikebana paramétrico."},
+  {icon:"🎓",title:"Educação & Oficinas",desc:"Oficinas de mecatrônica, Papiba, hardware livre."}
+];
+document.getElementById('t').innerHTML=themes.map(t=>`<div class="card"><div class="body"><h3>${t.icon} ${t.title}</h3><p>${t.desc}</p></div></div>`).join('');
+</script>
+</body>
+</html>
