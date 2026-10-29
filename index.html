@@ -1,160 +1,130 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GypsyLab8 — Portfolio de Arte, Ciência & Tecnologia</title>
-<meta name="description" content="Portfolio consolidado de projetos de arte, ciência e tecnologia open & free">
+<title>GypsyLab8 — Arte, Ciência & Tecnologia</title>
+<meta name="description" content="Laboratório de arte, ciência e tecnologia aberta">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0d12;--card:#111820;--accent:#f59e0b;--accent2:#14b8a6;--text:#f1f5f9;--muted:#64748b;--border:#1e293b;--imgbg:#1a202c;--glass:rgba(17,24,36,.7)}
-html[data-theme="light"]{--bg:#f8fafc;--card:#ffffff;--accent:#b45309;--accent2:#06b6d4;--text:#1e293b;--muted:#64748b;--border:#94a3b8;--imgbg:#e2e8f0;--glass:rgba(255,255,255,.7)}
+:root{--bg:#0b0f1a;--card:rgba(255,255,255,.04);--accent:#7c3aed;--accent2:#06b6d4;--text:#e2e8f0;--muted:#94a3b8;--border:rgba(255,255,255,.08)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,Segoo UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
-nav{position:sticky;top:0;background:var(--glass);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;z-index:20}
-nav .brand{font-weight:800;color:var(--accent);font-size:1.1rem}
-nav a{color:var(--text);text-decoration:none;font-size:.85rem;opacity:.8}
-nav a:hover{color:var(--accent);opacity:1}
-nav .search{display:flex;gap:6px;align-items:center}
-nav .search input{padding:6px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.8rem}
-nav .search input:focus{outline:none;border-color:var(--accent)}
-.toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer}
-.hero{padding:80px 20px 40px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%, rgba(245,158,11,.15), transparent 50%),radial-gradient(circle at 70% 80%, rgba(20,184,166,.15), transparent 50%);pointer-events:none}
-.hero h1{font-size:3rem;font-weight:900;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
-.hero p{color:var(--muted);max-width:720px;margin:0 auto;font-size:1rem}
-.container{max-width:1200px;margin:0 auto;padding:24px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,.4);border-color:var(--accent)}
-.card .thumb{height:140px;background:var(--imgbg);position:relative}
-.card .thumb::after{content:"";position:absolute;inset:0;background:var(--imgbg);opacity:.3}
-.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.card .body{padding:16px}
-.card h3{font-size:1rem;margin:4px 0}
-.card h3 a{color:var(--text);text-decoration:none}
-.card h3 a:hover{color:var(--accent)}
-.card p{color:var(--muted);font-size:.75rem;margin:4px 0}
-.meta{display:flex;gap:4px;margin-top:6px;font-size:.65rem;color:var(--muted);flex-wrap:wrap}
-.tag{background:var(--imgbg);padding:1px 6px;border-radius:8px;border:1px solid var(--border);font-size:.6rem;margin:1px}
-.featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.feat{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .2s}
-.feat:hover{transform:translateY(-6px);border-color:var(--accent)}
-.feat .thumb{height:160px}
-.feat .body{padding:18px}
-.feat h3{font-size:1.15rem;margin-bottom:8px}
-.feat p{color:var(--muted);font-size:.9rem;margin:6px 0}
-.chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
-.chip{font-size:.6rem;padding:2px 8px;border-radius:10px;border:1px solid var(--border);font-size:.6rem;background:var(--imgbg);color:var(--muted)}
-.posts{display:grid;gap:8px}
-.post{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:start}
-.post img{width:90px;height:60px;object-fit:cover;border-radius:6px}
-.post a{color:var(--accent);text-decoration:none;font-weight:600}
-.post .date{color:var(--muted);font-size:.7rem}
-.oficina{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px}
-.oficina h3{color:var(--accent);margin-bottom:2px;font-size:1rem}
-.oficina a{color:var(--accent)}
-.prod{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px}
-.prod h3{color:var(--accent);margin-bottom:4px;font-size:1rem}
-.prod ul{color:var(--muted);padding-left:14px}
-footer{text-align:center;padding:16px;color:var(--muted);border-top:1px solid var(--border)}
-.hidden{display:none}
-@media(max-width:600px){.hero h1{font-size:2rem}.post{grid-template-columns:1fr}.post img{width:100%;height:80px}}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,rgba(124,58,237,.25),transparent 40%),radial-gradient(circle at 80% 90%,rgba(6,182,212,.2),transparent 40%);z-index:-1}
+nav{position:fixed;top:0;left:0;right:0;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(10px);background:rgba(11,15,26,.6);border-bottom:1px solid var(--border)}
+nav .brand{font-weight:700;font-size:1.3rem;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav .links a{color:var(--muted);margin-left:24px;font-size:.9rem;text-decoration:none;transition:color .2s}
+nav .links a:hover{color:var(--text)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 40px;max-width:1200px;margin:0 auto}
+.hero h1{font-size:clamp(3rem,8vw,6rem);font-weight:700;line-height:1.05;margin-bottom:24px}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:1.2rem;max-width:600px;margin-bottom:40px}
+.cta{display:inline-block;padding:14px 32px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.section{padding:100px 40px;max-width:1200px;margin:0 auto}
+.section h2{font-size:2.4rem;font-weight:700;margin-bottom:12px}
+.section .sub{color:var(--muted);margin-bottom:48px;font-size:1.05rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;backdrop-filter:blur(8px);transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 40px rgba(124,58,237,.15)}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.9rem}
+.tag{display:inline-block;margin-top:12px;font-size:.75rem;padding:4px 10px;border-radius:999px;background:rgba(124,58,237,.15);color:var(--accent2)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.feat{background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(6,182,212,.05));border:1px solid var(--border);border-radius:24px;padding:32px;transition:transform .3s}
+.feat:hover{transform:scale(1.02)}
+.feat .icon{font-size:2.4rem;margin-bottom:16px}
+.feat h3{font-size:1.3rem;margin-bottom:8px}
+.feat p{color:var(--muted);font-size:.9rem}
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.proj{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;transition:transform .2s,border-color .2s}
+.proj:hover{transform:translateY(-4px);border-color:var(--accent)}
+.proj h4{font-size:1rem;margin-bottom:4px}
+.proj p{color:var(--muted);font-size:.8rem;margin-bottom:8px}
+.proj a{color:var(--accent2);font-size:.8rem;text-decoration:none}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:6px 16px;cursor:pointer;color:var(--muted);font-size:.85rem;transition:all .2s}
+.filters button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.posts{display:grid;gap:16px}
+.post{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.post a{color:var(--text);font-weight:600;text-decoration:none}
+.post a:hover{color:var(--accent2)}
+.post .date{color:var(--muted);font-size:.75rem;margin:4px 0}
+.post p{color:var(--muted);font-size:.85rem}
+footer{text-align:center;padding:40px;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:700px){nav{padding:14px 20px}.hero{padding:0 20px}.section{padding:60px 20px}.links{display:none}}
 </style>
 </head>
 <body>
 <nav>
   <span class="brand">GypsyLab8</span>
-  <div class="search"><input id="q" type="text" placeholder="Buscar projetos, oficinas, posts..."><span>🔍</span></div>
-  <a href="#destaques">Destaques</a> <a href="#temas">Temas</a> <a href="#projetos">Projetos</a> <a href="#oficinas">Oficinas</a> <a href="#blog">Blog</a> <a href="#producoes">Produções</a> <a href="#contato">Contato</a> <button class="toggle" id="themeToggle">🌙/☀️</button>
-<header class="hero"><h1>GypsyLab8</h1><p>Portfolio consolidado de Arte · Ciência · Tecnologia Aberta & Livre</p></header>
-<div class="container">
-  <section id="destaques"><h2>Projetos em Destaque</h2><p class="lead">Seleção dos trabalhos mais relevantes.</p><div class="featured" id="f"></div></section>
-  <section id="temas"><h2>Temas</h2><p class="lead">Eixos temáticos.</p><div class="grid" id="t"></div></section>
-  <section id="projetos"><h2>Projetos (GitHub)</h2><div class="filters" id="fl"></div><div class="grid" id="p"></div></section>
-</div>
-<section id="oficinas"><h2>Oficinas & Arte</h2><div id="o"></div></section>
-<section id="blog"><h2>Blog (WordPress)</h2><div class="posts" id="b"><p>Carregando posts...</p></div></section>
-<section id="producoes"><h2>Produções Acadêmicas & Científicas</h2><div class="prod" id="pr"></div></section>
-<section id="contato"><h2>Contato</h2><p class="lead">GitHub: <a href="https://github.com/gypsylab8" target="_blank">@gypsylab8</a> · <a href="https://github.com/guimasan" target="_blank">@guimasan</a> · Blog: <a href="https://gypsylab8.wordpress.com" target="_blank">gypsylab8.wordpress.com</a></p></section>
-</div>
-<script>
-const featured=[
-  {name:"Tortuga-Guardian",desc:"Sensor IoT de microplástico para reservas marinhas.",lang:"C",url:"https://github.com/gypsylab8/Tortuga-Guardian",tags:["IoT","microplástico","marinho"]},
-  {name:"Papiba",desc:"Ambiente lúdico para crianças (#perfidinha2021).",lang:"JavaScript",url:"https://github.com/gypsylab8/Papiba",tags:["educação","lúdico"]},
-  {name:"cidadelas_automatizadas",desc:"Cidadelas automatizadas.",lang:"C++",url:"https://github.com/gypsylab8/cidadelas_automatizadas",tags:["automação"]},
-  {name:"gabirusUrbanus",desc:"Robôs seguidores de sombra e luz (Arduino).",lang:"C++",url:"https://github.com/guimasan/gabirusUrbanus",tags:["robótica","oficina"]},
-  {name:"maedagua-iara",desc:"Mãe d'Água - IARA: monitoramento hídrico.",lang:"HTML",url:"https://github.com/guimasan/maedagua-iara",tags:["água","ciência cidadã"]},
-  {name:"EEO",desc:"Experimentações Eletro-Orgânicas.",lang:"Arduino",url:"https://github.com/guimasan/EEO",tags:["bioarte"]}
-];
-document.getElementById('f').innerHTML=featured.map(p=>` <div class="feat"><div class="thumb" style="background:url('https://opengraph.githubassets.com/1/${p.name.split('-')[0]}/${p.name}')"><img src="https://opengraph.githubassets.com/1/${p.name.split('-')[0]}/${p.name}" alt="${p.name}" onerror="this.parentElement.style.background='none';this.style.display='none'"></div><div class="body"><h3><a href="${p.url}" target="_blank">${p.name}</a></h3><p>${p.desc}</p><div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}<span class="chip">${p.lang}</span></div></div></div>`).join('');
-const themes=[
-  {icon:"🧠",title:"Neurociência & Biofeedback",desc:"EMG, neurofeedback, interfaces corpo-máquina."},
-  {icon:"🤖",title:"Robótica & Automação",desc:"UGV, drones, robôs seguidores, cidadelas."},
-  {icon:"💧",title:"Ciência Cidadã & Água",desc:"Mãe d'Água, microplásticos, monitoramento."},
-  {icon:"🎨",title:"Arte Eletrônica",desc:"Transdutores, luminários, eletro-orgânica."},
-  {icon:"🌱",title:"Sustentabilidade",desc:"T-Box, DustDuino, ikebana paramétrico."},
-  {icon:"🎓",title:"Educação & Oficinas",desc:"Oficinas de mecatrônica, Papiba, hardware livre."}
-];
-document.getElementById('t').innerHTML=themes.map(t=>` <div class="card"><div class="body"><h3>${t.icon} ${t.title}</h3><p>${t.desc}</p></div></div>`).join('');
-const projects = [
-  {author:"gypsylab8",name:"Tortuga-Guardian",desc:"Sensor de microplástico IoT",lang:"C",url:"https://github.com/gypsylab8/Tortuga-Guardian"},
-  {author:"gypsylab8",name:"tortugaGuardian",desc:"Template para drone flutuante/submersível",lang:"—",url:"https://github.com/gypsylab8/tortugaGuardian"},
-  {author:"gypsylab8",name:"EEO",desc:"Experimentações Eletro-Orgânicas",lang:"Processing",url:"https://github.com/gypsylab8/EEO"},
-  {author:"gypsylab8",name:"LaBike-firefly",desc:"Gadgets para bicicletas",lang:"C++",url:"https://github.com/gypsylab8/LaBike-firefly"},
-  {author:"gypsylab8",name:"Papiba",desc:"Ambiente lúdico para crianças de todas as idades (#perfidinha2021)",lang:"JavaScript",url:"https://github.com/gypsylab8/Papiba"},
-  {author:"gypsylab8",name:"cidadelas_automatizadas",desc:"Cidadelas automatizadas",lang:"C++",url:"https://github.com/gypsylab8/cidadelas_automatizadas"},
-  {author:"gypsylab8",name:"next2shopify",desc:"Integração Next.js → Shopify",lang:"JavaScript",url:"https://github.com/gypsylab8/next2shopify"},
-  {author:"gypsylab8",name:"list_test",desc:"Teste de listas",lang:"C",url:"https://github.com/gypsylab8/list_test"},
-  {author:"guimasan",name:"cedoc2605",desc:"Sistema CEDOC",lang:"PHP",url:"https://github.com/guimasan/cedoc2605"},
-  {author:"guimasan",name:"maedagua-iara",desc:"Mãe d'Água - IARA",lang:"HTML",url:"https://github.com/guimasan/maedagua-iara"},
-  {author:"guimasan",name:"ikebana",desc:"Ikebana (OpenSCAD)",lang:"OpenSCAD",url:"https://github.com/guimasan/ikebana"},
-  {author:"guimasan",name:"v26",desc:"v26 (OpenSCAD)",lang:"OpenSCAD",url:"https://github.com/guimasan/v26"},
-  {author:"guimasan",name:"guimasan",desc:"yo",lang:"—",url:"https://github.com/guimasan/guimasan"},
-  {author:"guimasan",name:"gabirusUrbanus",desc:"Robôs seguidores de sombra e luz",lang:"C++",url:"https://github.com/guimasan/gabirusUrbanus"},
-  {author:"guimasan",name:"blog",desc:"Blog",lang:"—",url:"https://github.com/guimasan/blog"},
-  {author:"guimasan",name:"maedagua-chicomendes",desc:"Mãe d'Água Chico Mendes",lang:"C++",url:"https://github.com/guimasan/maedagua-chicomendes"},
-  {author:"guimasan",name:"EEO",desc:"Experimentações EletrOrgânicas",lang:"Arduino",url:"https://github.com/guimasan/EEO"},
-  {author:"guimasan",name:"T-box",desc:"Thermal Arduino incubator box",lang:"Arduino",url:"https://github.com/guimasan/T-box"},
-  {author:"guimasan",name:"DustDuinoGPRS",desc:"Usando GPRS Shield",lang:"Arduino",url:"https://github.com/guimasan/DustDuinoGPRS"},
-  {author:"guimasan",name:"redeinfoamazonia-debug-firmware",desc:"Debug firmware rede infoamazônia mãe d'água v1.0",lang:"C++",url:"https://github.com/guimasan/redeinfoamazonia-debug-firmware"},
-  {author:"guimasan",name:"DustDuinoWiFly",desc:"Fork OpenDustMap/DustDuinoWiFly",lang:"HTML",url:"https://github.com/guimasan/DustDuinoWiFly"},
-  {author:"guimasan",name:"rede-firmware",desc:"Fork InfoAmazonia/rede-firmware",lang:"C++",url:"https://github.com/guimasan/rede-firmware"}
-];
-const langs=[...new Set(projects.map(p=>p.lang))].sort();const fl=document.getElementById('fl');let af='all';
-function buildFilters(){const opts=['all',...langs];fl.innerHTML=opts.map(l=>`<button data-f="${l}" class="${l===af?'active':''}">${l==='all'?'Todos':l}</button>`).join('');fl.querySelectorAll('button').forEach(b=>b.onclick=()=>{af=b.dataset.f;renderProjects();filterAll();});}
-function thumbUrl(p){return `https://opengraph.githubassets.com/1/${p.author}/${p.name}`;}
-function renderProjects(){const list=af==='all'?projects:projects.filter(p=>p.lang===af);document.getElementById('p').innerHTML=list.map(p=>` <div class="card" data-search="${(p.name+' '+p.desc+' '+p.lang+' '+p.author).toLowerCase()}"><div class="thumb" style="background:url('${thumbUrl(p)}')"><img src="${thumbUrl(p)}" alt="${p.name}" onerror="this.parentElement.style.background='var(--imgbg)';this.style.display='block'"></div><div class="body"><h3><a href="${p.url}" target="_blank">${p.name}</a></h3><p>${p.desc}</p><div class="meta"><span class="tag">${p.lang}</span><span class="tag">${p.author}</span></div></div></div>`).join('');}
-buildFilters();renderProjects();
-const he=document.documentElement;const sv=localStorage.getItem('theme');if(sv) he.dataset.theme=sv;
-document.getElementById('themeToggle').onclick=()=>{const t=he.dataset.theme==='dark'?'light':'dark'; he.dataset.theme=t;localStorage.setItem('theme',t);};
-const be=document.getElementById('b');fetch('https://gypsylab8.wordpress.com/feed/').then(r=>r.text()).then(txt=>{const doc=new DOMParser().parseFromString(txt,'text/xml');const it=[...doc.querySelectorAll('item')].slice(0,6);if(!it.length)throw new Error('no');be.innerHTML=it.map(it=>{const ti=it.querySelector('title')?.textContent||'';const li=it.querySelector('link')?.textContent||'#';const dt=new Date(it.querySelector('pubDate')?.textContent||'').toLocaleDateString('pt-BR');const di=(it.querySelector('description')?.textContent||'').replace(/<[^>]+>/g,'').slice(0,150);const im=it.querySelector('media\\:thumbnail,thumbnail')?.getAttribute('url')||'';return `<div class="post" data-search="${(ti+' '+di).toLowerCase()}">${im?`<img src="${im}" alt="">`:''}<div><a href="${li}" target="_blank">${ti}</a><div class="date">${dt}</div><p>${di}…</p></div></div>`;}).join('');}).catch(()=>{be.innerHTML='<p>Não foi possível carregar posts. <a href="https://gypsylab8.wordpress.com" target="_blank">Acesse o blog</a>.</p>';});
-function filterAll(){const q=document.getElementById('q').value.toLowerCase().trim();document.querySelectorAll('[data-search]').forEach(el=>{el.classList.toggle('hidden', q && !el.dataset.search.includes(q));});}
-document.getElementById('q').addEventListener('input',filterAll);
-</script>
+  <div class="links">
+    <a href="#sobre">Sobre</a>
+    <a href="#eixos">Eixos</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#blog">Blog</a>
+    <a href="#contato">Contato</a>
+  </div>
 </nav>
+<section class="hero">
+  <h1>Laboratório de <span>Arte, Ciência & Tecnologia</span> aberta</h1>
+  <p>Explorando neurociência, robótica, ciência cidadã e arte eletrônica com hardware e software livres.</p>
+  <a href="#projetos" class="cta">Ver projetos →</a>
+</section>
+<section class="section" id="sobre">
+  <h2>Sobre</h2>
+  <p class="sub">Portfolio consolidado dos perfis @gypsylab8 e @guimasan, com projetos open & free, oficinas e produções científicas.</p>
+  <div class="feat-grid" id="feat"></div>
+</section>
+<section class="section" id="eixos">
+  <h2>Eixos Temáticos</h2>
+  <p class="sub">Áreas de atuação e pesquisa.</p>
+  <div class="grid" id="eixos-grid"></div>
+</section>
+<section class="section" id="projetos">
+  <h2>Projetos</h2>
+  <p class="sub">Repositórios no GitHub.</p>
+  <div class="filters" id="fl"></div>
+  <div class="projects" id="proj"></div>
+</section>
+<section class="section" id="blog">
+  <h2>Blog</h2>
+  <p class="sub">Últimas publicações do WordPress.</p>
+  <div class="posts" id="blog-posts"><p>Carregando...</p></div>
+</section>
+<section class="section" id="contato">
+  <h2>Contato</h2>
+  <p class="sub">GitHub: <a href="https://github.com/gypsylab8" target="_blank" rel="noopener">@gypsylab8</a> · <a href="https://github.com/guimasan" target="_blank" rel="noopener">@guimasan</a> · Blog: <a href="https://gypsylab8.wordpress.com" target="_blank" rel="noopener">gypsylab8.wordpress.com</a></p>
+</section>
+<footer>© GypsyLab8 — Arte, Ciência & Tecnologia Aberta</footer>
 <script>
 const featured=[
-  {name:"Tortuga-Guardian",desc:"Sensor IoT de microplástico para reservas marinhas.",lang:"C",url:"https://github.com/gypsylab8/Tortuga-Guardian",tags:["IoT","microplástico","marinho"]},
-  {name:"Papiba",desc:"Ambiente lúdico para crianças (#perfidinha2021).",lang:"JavaScript",url:"https://github.com/gypsylab8/Papiba",tags:["educação","lúdico"]},
-  {name:"cidadelas_automatizadas",desc:"Cidadelas automatizadas.",lang:"C++",url:"https://github.com/gypsylab8/cidadelas_automatizadas",tags:["automação"]},
-  {name:"gabirusUrbanus",desc:"Robôs seguidores de sombra e luz (Arduino).",lang:"C++",url:"https://github.com/guimasan/gabirusUrbanus",tags:["robótica","oficina"]},
-  {name:"maedagua-iara",desc:"Mãe d'Água - IARA: monitoramento hídrico.",lang:"HTML",url:"https://github.com/guimasan/maedagua-iara",tags:["água","ciência cidadã"]},
-  {name:"EEO",desc:"Experimentações Eletro-Orgânicas.",lang:"Arduino",url:"https://github.com/guimasan/EEO",tags:["bioarte"]}
+ {icon:'🧠',title:'Neurociência & Biofeedback',desc:'EMG, neurofeedback, interfaces corpo-máquina.'},
+ {icon:'🤖',title:'Robótica & Automação',desc:'UGV, drones, robôs seguidores, cidadelas.'},
+ {icon:'💧',title:'Ciência Cidadã & Água',desc:'Mãe d'Água, microplásticos, monitoramento.'},
+ {icon:'🎨',title:'Arte Eletrônica',desc:'Transdutores, luminários, eletro-orgânica.'},
+ {icon:'🌱',title:'Sustentabilidade',desc:'T-Box, DustDuino, ikebana paramétrico.'},
+ {icon:'🎓',title:'Educação & Oficinas',desc:'Oficinas de mecatrônica, Papiba, hardware livre.'}
 ];
-document.getElementById('f').innerHTML=featured.map(p=>{
-  const author=p.url.includes('guimasan')?'guimasan':'gypsylab8';
-  const img=`https://opengraph.githubassets.com/1/${author}/${p.name}`;
-  return `<div class="feat"><div class="thumb"><img src="${img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.style.background='var(--imgbg)';this.style.display='none'"></div><div class="body"><h3><a href="${p.url}" target="_blank" rel="noopener">${p.name}</a></h3><p>${p.desc}</p><div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}<span class="chip">${p.lang}</span></div></div></div>`;
-}).join('');
-const themes=[
-  {icon:"🧠",title:"Neurociência & Biofeedback",desc:"EMG, neurofeedback, interfaces corpo-máquina."},
-  {icon:"🤖",title:"Robótica & Automação",desc:"UGV, drones, robôs seguidores, cidadelas."},
-  {icon:"💧",title:"Ciência Cidadã & Água",desc:"Mãe d'Água, microplásticos, monitoramento."},
-  {icon:"🎨",title:"Arte Eletrônica",desc:"Transdutores, luminários, eletro-orgânica."},
-  {icon:"🌱",title:"Sustentabilidade",desc:"T-Box, DustDuino, ikebana paramétrico."},
-  {icon:"🎓",title:"Educação & Oficinas",desc:"Oficinas de mecatrônica, Papiba, hardware livre."}
+document.getElementById('feat').innerHTML=featured.map(f=>`<div class="feat"><div class="icon">${f.icon}</div><h3>${f.title}</h3><p>${f.desc}</p></div>`).join('');
+document.getElementById('eixos-grid').innerHTML=featured.map(f=>`<div class="card"><h3>${f.icon} ${f.title}</h3><p>${f.desc}</p><span class="tag">eixo</span></div>`).join('');
+const projects=[
+ {author:'gypsylab8',name:'Tortuga-Guardian',desc:'Sensor de microplástico IoT',lang:'C',url:'https://github.com/gypsylab8/Tortuga-Guardian'},
+ {author:'gypsylab8',name:'Papiba',desc:'Ambiente lúdico para crianças',lang:'JavaScript',url:'https://github.com/gypsylab8/Papiba'},
+ {author:'gypsylab8',name:'cidadelas_automatizadas',desc:'Cidadelas automatizadas',lang:'C++',url:'https://github.com/gypsylab8/cidadelas_automatizadas'},
+ {author:'guimasan',name:'gabirusUrbanus',desc:'Robôs seguidores de sombra e luz',lang:'C++',url:'https://github.com/guimasan/gabirusUrbanus'},
+ {author:'guimasan',name:'maedagua-iara',desc:'Mãe d'Água - IARA',lang:'HTML',url:'https://github.com/guimasan/maedagua-iara'},
+ {author:'guimasan',name:'EEO',desc:'Experimentações Eletro-Orgânicas',lang:'Arduino',url:'https://github.com/guimasan/EEO'},
+ {author:'guimasan',name:'T-box',desc:'Thermal Arduino incubator box',lang:'Arduino',url:'https://github.com/guimasan/T-box'},
+ {author:'guimasan',name:'DustDuinoGPRS',desc:'Usando GPRS Shield',lang:'Arduino',url:'https://github.com/guimasan/DustDuinoGPRS'}
 ];
-document.getElementById('t').innerHTML=themes.map(t=>`<div class="card"><div class="body"><h3>${t.icon} ${t.title}</h3><p>${t.desc}</p></div></div>`).join('');
+const langs=[...new Set(projects.map(p=>p.lang))].sort();
+const fl=document.getElementById('fl');let af='all';
+function buildFilters(){const opts=['all',...langs];fl.innerHTML=opts.map(l=>`<button data-f="${l}" class="${l===af?'active':''}">${l==='all'?'Todos':l}</button>`).join('');fl.querySelectorAll('button').forEach(b=>b.onclick=()=>{af=b.dataset.f;render();});}
+function render(){const list=af==='all'?projects:projects.filter(p=>p.lang===af);document.getElementById('proj').innerHTML=list.map(p=>`<div class="proj"><h4>${p.name}</h4><p>${p.desc}</p><span class="tag">${p.lang}</span><br><a href="${p.url}" target="_blank" rel="noopener">Abrir →</a></div>`).join('');}
+buildFilters();render();
+const be=document.getElementById('blog-posts');
+fetch('https://gypsylab8.wordpress.com/feed/').then(r=>r.text()).then(txt=>{const doc=new DOMParser().parseFromString(txt,'text/xml');const it=[...doc.querySelectorAll('item')].slice(0,5);if(!it.length)throw new Error('no');be.innerHTML=it.map(it=>{const ti=it.querySelector('title')?.textContent||'';const li=it.querySelector('link')?.textContent||'#';const dt=new Date(it.querySelector('pubDate')?.textContent||'').toLocaleDateString('pt-BR');const di=(it.querySelector('description')?.textContent||'').replace(/<[^>]+>/g,'').slice(0,120);return `<div class="post"><a href="${li}" target="_blank" rel="noopener">${ti}</a><div class="date">${dt}</div><p>${di}…</p></div>`;}).join('');}).catch(()=>{be.innerHTML='<p>Não foi possível carregar posts.</p>';});
 </script>
 </body>
 </html>
