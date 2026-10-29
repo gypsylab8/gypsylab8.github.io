@@ -18,46 +18,47 @@ nav .search{display:flex;gap:6px;align-items:center}
 nav .search input{padding:6px 12px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.8rem}
 nav .search input:focus{outline:none;border-color:var(--accent)}
 .toggle{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer}
-.hero{padding:100px 20px 60px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%, rgba(245,158,11,.2), transparent 50%),radial-gradient(circle at 70% 80%, rgba(20,184,166,.18), transparent 50%);pointer-events:none}
-.hero h1{font-size:3.6rem;font-weight:900;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
-.hero p{color:var(--muted);max-width:720px;margin:0 auto;font-size:1.1rem}
-.container{max-width:1200px;margin:0 auto;padding:32px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .24s,box-shadow .24s}
-.card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.4);border-color:var(--accent)}
-.card .thumb{height:180px;background:var(--imgbg)}
-.card .thumb img{width:100%;height:100%;object-fit:cover}
-.card .body{padding:20px}
-.card h3{font-size:1.15rem;margin:6px 0}
+.hero{padding:80px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%, rgba(245,158,11,.15), transparent 50%),radial-gradient(circle at 70% 80%, rgba(20,184,166,.15), transparent 50%);pointer-events:none}
+.hero h1{font-size:3rem;font-weight:900;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.hero p{color:var(--muted);max-width:720px;margin:0 auto;font-size:1rem}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-6px);box-shadow:0 15px 30px rgba(0,0,0,.4);border-color:var(--accent)}
+.card .thumb{height:140px;background:var(--imgbg);position:relative}
+.card .thumb::after{content:"";position:absolute;inset:0;background:var(--imgbg);opacity:.3}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:16px}
+.card h3{font-size:1rem;margin:4px 0}
 .card h3 a{color:var(--text);text-decoration:none}
 .card h3 a:hover{color:var(--accent)}
-.card p{color:var(--muted);font-size:.85rem;margin:6px 0}
-.meta{display:flex;gap:6px;margin-top:8px;font-size:.75rem;color:var(--muted);flex-wrap:wrap}
-.tag{background:var(--imgbg);padding:2px 8px;border-radius:10px;border:1px solid var(--border);font-size:.7rem;margin:2px}
-.featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.feat{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .24s}
+.card p{color:var(--muted);font-size:.75rem;margin:4px 0}
+.meta{display:flex;gap:4px;margin-top:6px;font-size:.65rem;color:var(--muted);flex-wrap:wrap}
+.tag{background:var(--imgbg);padding:1px 6px;border-radius:8px;border:1px solid var(--border);font-size:.6rem;margin:1px}
+.featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .2s}
 .feat:hover{transform:translateY(-6px);border-color:var(--accent)}
-.feat .thumb{height:200px}
-.feat .body{padding:24px}
-.feat h3{font-size:1.3rem;margin-bottom:10px}
-.feat p{color:var(--muted);font-size:.95rem;margin:8px 0}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.chip{font-size:.7rem;padding:3px 10px;border-radius:12px;background:var(--imgbg);color:var(--muted);border:1px solid var(--border)}
-.posts{display:grid;gap:12px}
-.post{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:start}
-.post img{width:110px;height:75px;object-fit:cover;border-radius:8px}
+.feat .thumb{height:160px}
+.feat .body{padding:18px}
+.feat h3{font-size:1.15rem;margin-bottom:8px}
+.feat p{color:var(--muted);font-size:.9rem;margin:6px 0}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:.6rem;padding:2px 8px;border-radius:10px;border:1px solid var(--border);font-size:.6rem;background:var(--imgbg);color:var(--muted)}
+.posts{display:grid;gap:8px}
+.post{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;display:grid;grid-template-columns:90px 1fr;gap:10px;align-items:start}
+.post img{width:90px;height:60px;object-fit:cover;border-radius:6px}
 .post a{color:var(--accent);text-decoration:none;font-weight:600}
-.post .date{color:var(--muted);font-size:.8rem}
-.oficina{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px}
-.oficina h3{color:var(--accent);margin-bottom:4px;font-size:1.05rem}
+.post .date{color:var(--muted);font-size:.7rem}
+.oficina{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px}
+.oficina h3{color:var(--accent);margin-bottom:2px;font-size:1rem}
 .oficina a{color:var(--accent)}
-.prod{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px}
-.prod h3{color:var(--accent);margin-bottom:6px;font-size:1.05rem}
-.prod ul{color:var(--muted);padding-left:18px}
-footer{text-align:center;padding:24px;color:var(--muted);border-top:1px solid var(--border)}
-.hidden{display:none!important}
-@media(max-width:600px){.hero h1{font-size:2.4rem}.post{grid-template-columns:1fr}.post img{width:100%;height:120px}}
+.prod{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px}
+.prod h3{color:var(--accent);margin-bottom:4px;font-size:1rem}
+.prod ul{color:var(--muted);padding-left:14px}
+footer{text-align:center;padding:16px;color:var(--muted);border-top:1px solid var(--border)}
+.hidden{display:none}
+@media(max-width:600px){.hero h1{font-size:2rem}.post{grid-template-columns:1fr}.post img{width:100%;height:80px}}
 </style>
 </head>
 <body>
@@ -70,10 +71,11 @@ footer{text-align:center;padding:24px;color:var(--muted);border-top:1px solid va
   <section id="destaques"><h2>Projetos em Destaque</h2><p class="lead">Seleção dos trabalhos mais relevantes.</p><div class="featured" id="f"></div></section>
   <section id="temas"><h2>Temas</h2><p class="lead">Eixos temáticos.</p><div class="grid" id="t"></div></section>
   <section id="projetos"><h2>Projetos (GitHub)</h2><div class="filters" id="fl"></div><div class="grid" id="p"></div></section>
-  <section id="oficinas"><h2>Oficinas & Arte</h2><div id="o"></div></section>
-  <section id="blog"><h2>Blog (WordPress)</h2><div class="posts" id="b"><p>Carregando...</p></div></section>
-  <section id="producoes"><h2>Produções Acadêmicas & Científicas</h2><div class="prod" id="pr"></div></section>
-  <section id="contato"><h2>Contato</h2><p class="lead">GitHub: <a href="https://github.com/gypsylab8" target="_blank">@gypsylab8</a> · <a href="https://github.com/guimasan" target="_blank">@guimasan</a> · Blog: <a href="https://gypsylab8.wordpress.com" target="_blank">gypsylab8.wordpress.com</a></p></section>
+</div>
+<section id="oficinas"><h2>Oficinas & Arte</h2><div id="o"></div></section>
+<section id="blog"><h2>Blog (WordPress)</h2><div class="posts" id="b"><p>Carregando posts...</p></div></section>
+<section id="producoes"><h2>Produções Acadêmicas & Científicas</h2><div class="prod" id="pr"></div></section>
+<section id="contato"><h2>Contato</h2><p class="lead">GitHub: <a href="https://github.com/gypsylab8" target="_blank">@gypsylab8</a> · <a href="https://github.com/guimasan" target="_blank">@guimasan</a> · Blog: <a href="https://gypsylab8.wordpress.com" target="_blank">gypsylab8.wordpress.com</a></p></section>
 </div>
 <script>
 const featured=[
@@ -84,7 +86,7 @@ const featured=[
   {name:"maedagua-iara",desc:"Mãe d'Água - IARA: monitoramento hídrico.",lang:"HTML",url:"https://github.com/guimasan/maedagua-iara",tags:["água","ciência cidadã"]},
   {name:"EEO",desc:"Experimentações Eletro-Orgânicas.",lang:"Arduino",url:"https://github.com/guimasan/EEO",tags:["bioarte"]}
 ];
-document.getElementById('f').innerHTML=featured.map(p=>` <div class="feat"><div class="thumb"><img src="https://opengraph.githubassets.com/1/${p.name.split('-')[0]}/${p.name}" alt="${p.name}" onerror="this.style.display='none'></div><div class="body"><h3><a href="${p.url}" target="_blank">${p.name}</a></h3><p>${p.desc}</p><div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}<span class="chip">${p.lang}</span></div></div></div>`).join('');
+document.getElementById('f').innerHTML=featured.map(p=>` <div class="feat"><div class="thumb" style="background:url('https://opengraph.githubassets.com/1/${p.name.split('-')[0]}/${p.name}')"><img src="https://opengraph.githubassets.com/1/${p.name.split('-')[0]}/${p.name}" alt="${p.name}" onerror="this.parentElement.style.background='none';this.style.display='none'"></div><div class="body"><h3><a href="${p.url}" target="_blank">${p.name}</a></h3><p>${p.desc}</p><div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}<span class="chip">${p.lang}</span></div></div></div>`).join('');
 const themes=[
   {icon:"🧠",title:"Neurociência & Biofeedback",desc:"EMG, neurofeedback, interfaces corpo-máquina."},
   {icon:"🤖",title:"Robótica & Automação",desc:"UGV, drones, robôs seguidores, cidadelas."},
@@ -118,15 +120,14 @@ const projects = [
   {author:"guimasan",name:"DustDuinoWiFly",desc:"Fork OpenDustMap/DustDuinoWiFly",lang:"HTML",url:"https://github.com/guimasan/DustDuinoWiFly"},
   {author:"guimasan",name:"rede-firmware",desc:"Fork InfoAmazonia/rede-firmware",lang:"C++",url:"https://github.com/guimasan/rede-firmware"}
 ];
-const langs=[...new Set(projects.map(p=>p.lang))].sort();
-const fl=document.getElementById('fl');let af='all';
-function buildFilters(){const opts=['all',...langs];fl.innerHTML=opts.map(l=>`<button data-f="${l}" class="${l===af?'active':''}">${l==='all'?'Todos':l}</button>`).join('');fl.querySelectorAll('button').forEach(b=>b.onclick=()=>{af=b.dataset.f;buildFilters();renderProjects();filterAll();});}
-</script>
-function renderProjects(){const list=af==='all'?projects:projects.filter(p=>p.lang===af);document.getElementById('p').innerHTML=list.map(p=>` <div class="card" data-search="${(p.name+' '+p.desc+' '+p.lang+' '+p.author).toLowerCase()}"><div class="thumb"><img src="${thumbUrl(p)}" alt="${p.name}" onerror="this.style.display='none'></div><div class="body"><h3><a href="${p.url}" target="_blank">${p.name}</a></h3><p>${p.desc}</p><div class="meta"><span class="tag">${p.lang}</span><span class="tag">${p.author}</span></div></div></div>`).join('');}
+const langs=[...new Set(projects.map(p=>p.lang))].sort();const fl=document.getElementById('fl');let af='all';
+function buildFilters(){const opts=['all',...langs];fl.innerHTML=opts.map(l=>`<button data-f="${l}" class="${l===af?'active':''}">${l==='all'?'Todos':l}</button>`).join('');fl.querySelectorAll('button').forEach(b=>b.onclick=()=>{af=b.dataset.f;renderProjects();filterAll();});}
+function thumbUrl(p){return `https://opengraph.githubassets.com/1/${p.author}/${p.name}`;}
+function renderProjects(){const list=af==='all'?projects:projects.filter(p=>p.lang===af);document.getElementById('p').innerHTML=list.map(p=>` <div class="card" data-search="${(p.name+' '+p.desc+' '+p.lang+' '+p.author).toLowerCase()}"><div class="thumb" style="background:url('${thumbUrl(p)}')"><img src="${thumbUrl(p)}" alt="${p.name}" onerror="this.parentElement.style.background='var(--imgbg)';this.style.display='block'"></div><div class="body"><h3><a href="${p.url}" target="_blank">${p.name}</a></h3><p>${p.desc}</p><div class="meta"><span class="tag">${p.lang}</span><span class="tag">${p.author}</span></div></div></div>`).join('');}
 buildFilters();renderProjects();
 const he=document.documentElement;const sv=localStorage.getItem('theme');if(sv) he.dataset.theme=sv;
 document.getElementById('themeToggle').onclick=()=>{const t=he.dataset.theme==='dark'?'light':'dark'; he.dataset.theme=t;localStorage.setItem('theme',t);};
-const be=document.getElementById('b');fetch('https://gypsylab8.wordpress.com/feed/').then(r=>r.text()).then(txt=>{const doc=new DOMParser().parseFromString(txt,'text/xml');const it=[...doc.querySelectorAll('item')].slice(0,6);if(!it.length)throw new Error('no');be.innerHTML=it.map(it=>{const ti=it.querySelector('title')?.textContent||'';const li=it.querySelector('link')?.textContent||'#';const dt=new Date(it.querySelector('pubDate')?.textContent||'').toLocaleDateString('pt-BR');const di=(it.querySelector('description')?.textContent||'').replace(/<[^>]+>/g,'').slice(0,180);const im=it.querySelector('media\\:thumbnail,thumbnail')?.getAttribute('url')||'';return `<div class="post" data-search="${(ti+' '+di).toLowerCase()}">${im?`<img src="${im}" alt="">`:''}<div><a href="${li}" target="_blank">${ti}</a><div class="date">${dt}</div><p>${di}…</p></div></div>`;}).join('');}).catch(()=>{be.innerHTML='<p>Não foi possível carregar os posts. <a href="https://gypsylab8.wordpress.com" target="_blank">Acesse o blog</a>.</p>';});
+const be=document.getElementById('b');fetch('https://gypsylab8.wordpress.com/feed/').then(r=>r.text()).then(txt=>{const doc=new DOMParser().parseFromString(txt,'text/xml');const it=[...doc.querySelectorAll('item')].slice(0,6);if(!it.length)throw new Error('no');be.innerHTML=it.map(it=>{const ti=it.querySelector('title')?.textContent||'';const li=it.querySelector('link')?.textContent||'#';const dt=new Date(it.querySelector('pubDate')?.textContent||'').toLocaleDateString('pt-BR');const di=(it.querySelector('description')?.textContent||'').replace(/<[^>]+>/g,'').slice(0,150);const im=it.querySelector('media\\:thumbnail,thumbnail')?.getAttribute('url')||'';return `<div class="post" data-search="${(ti+' '+di).toLowerCase()}">${im?`<img src="${im}" alt="">`:''}<div><a href="${li}" target="_blank">${ti}</a><div class="date">${dt}</div><p>${di}…</p></div></div>`;}).join('');}).catch(()=>{be.innerHTML='<p>Não foi possível carregar posts. <a href="https://gypsylab8.wordpress.com" target="_blank">Acesse o blog</a>.</p>';});
 function filterAll(){const q=document.getElementById('q').value.toLowerCase().trim();document.querySelectorAll('[data-search]').forEach(el=>{el.classList.toggle('hidden', q && !el.dataset.search.includes(q));});}
 document.getElementById('q').addEventListener('input',filterAll);
 </script>
