@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GypsyLab8 — Arte, Ciência & Tecnologia</title>
+<meta name="description" content="Portfolio de projetos de arte, ciência e tecnologia open & free — GypsyLab8.">
+<style>
+:root{--bg:#0d1117;--card:#161b22;--accent:#f0883e;--text:#c9d1d9;--muted:#8b949e;--border:#30363d;--imgbg:#21262d}
+html[data-theme="light"]{--bg:#f6f8fa;--card:#ffffff;--accent:#d97706;--text:#24292f;--muted:#57606a;--border:#d0d7de;--imgbg:#eaeef2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .2s,color .2s}
+header{padding:60px 20px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{font-size:2.6rem;color:var(--accent)}
+header p{color:var(--muted);margin-top:8px}
+header a{color:var(--accent);text-decoration:none}
+.toggle{position:fixed;top:16px;right:16px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 12px;cursor:pointer;color:var(--text)}
+.container{max-width:1100px;margin:0 auto;padding:40px 20px}
+h2{margin:30px 0 16px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:8px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filters button{background:var(--card);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:16px;cursor:pointer;font-size:.85rem}
+.filters button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.thumb{width:100%;height:140px;background:var(--imgbg);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.body{padding:16px}
+.card h3{font-size:1.1rem;margin-bottom:6px}
+.card h3 a{color:var(--text);text-decoration:none}
+.card h3 a:hover{color:var(--accent)}
+.card p{color:var(--muted);font-size:.9rem;min-height:40px}
+.meta{display:flex;gap:10px;margin-top:12px;font-size:.8rem;color:var(--muted);flex-wrap:wrap}
+.tag{background:#21262d;padding:2px 8px;border-radius:12px}
+html[data-theme="light"] .tag{background:#eaeef2}
+.posts{display:grid;gap:12px}
+.post{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.post a{color:var(--accent);text-decoration:none;font-weight:600}
+.post .date{color:var(--muted);font-size:.8rem}
+footer{text-align:center;padding:30px;color:var(--muted);border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<button class="toggle" id="themeToggle">🌙/☀️</button>
+<header>
+  <h1>GypsyLab8</h1>
+  <p>Arte | Ciência | Tecnologia Aberta & Livre</p>
+  <p><a href="https://github.com/gypsylab8" target="_blank">github.com/gypsylab8</a> · <a href="https://gypsylab8.wordpress.com" target="_blank">gypsylab8.wordpress.com</a> · <a href="https://gypsylab8.net" target="_blank">gypsylab8.net</a></p>
+</header>
+<div class="container">
+  <h2>Projetos</h2>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="projects"></div>
+  <h2>Últimos posts do WordPress</h2>
+  <div class="posts" id="posts"><p>Carregando...</p></div>
+</div>
+<footer>GypsyLab8 · open & free technology · Brasil</footer>
+<script>
+const projects = [
+ {author:"gypsylab8",name:"Tortuga-Guardian",desc:"Sensor de microplástico IoT",lang:"C",url:"https://github.com/gypsylab8/Tortuga-Guardian"},
+ {author:"gypsylab8",name:"tortugaGuardian",desc:"Template para drone flutuante/submersível de identificação de microplásticos em reservas marinhas",lang:"—",url:"https://github.com/gypsylab8/tortugaGuardian"},
+ {author:"gypsylab8",name:"EEO",desc:"Experimentações Eletro-Orgânicas",lang:"Processing",url:"https://github.com/gypsylab8/EEO"},
+ {author:"gypsylab8",name:"LaBike-firefly",desc:"Gadgets para bicicletas",lang:"C++",url:"https://github.com/gypsylab8/LaBike-firefly"},
+ {author:"gypsylab8",name:"Papiba",desc:"Ambiente lúdico para crianças de todas as idades (#perfidinha2021)",lang:"JavaScript",url:"https://github.com/gypsylab8/Papiba"},
+ {author:"gypsylab8",name:"cidadelas_automatizadas",desc:"Cidadelas automatizadas",lang:"C++",url:"https://github.com/gypsylab8/cidadelas_automatizadas"},
+ {author:"gypsylab8",name:"next2shopify",desc:"Integração Next.js → Shopify",lang:"JavaScript",url:"https://github.com/gypsylab8/next2shopify"},
+ {author:"gypsylab8",name:"list_test",desc:"Teste de listas",lang:"C",url:"https://github.com/gypsylab8/list_test"},
+ {author:"guimasan",name:"cedoc2605",desc:"Sistema CEDOC",lang:"PHP",url:"https://github.com/guimasan/cedoc2605"},
+ {author:"guimasan",name:"maedagua-iara",desc:"Mãe d'Água - IARA",lang:"HTML",url:"https://github.com/guimasan/maedagua-iara"},
+ {author:"guimasan",name:"ikebana",desc:"Ikebana (OpenSCAD)",lang:"OpenSCAD",url:"https://github.com/guimasan/ikebana"},
+ {author:"guimasan",name:"v26",desc:"v26 (OpenSCAD)",lang:"OpenSCAD",url:"https://github.com/guimasan/v26"},
+ {author:"guimasan",name:"guimasan",desc:"yo",lang:"—",url:"https://github.com/guimasan/guimasan"},
+ {author:"guimasan",name:"gabirusUrbanus",desc:"Robôs seguidores de sombra e luz",lang:"C++",url:"https://github.com/guimasan/gabirusUrbanus"},
+ {author:"guimasan",name:"blog",desc:"Blog",lang:"—",url:"https://github.com/guimasan/blog"},
+ {author:"guimasan",name:"maedagua-chicomendes",desc:"Mãe d'Água Chico Mendes",lang:"C++",url:"https://github.com/guimasan/maedagua-chicomendes"},
+ {author:"guimasan",name:"EEO",desc:"Experimentações EletrOrgânicas",lang:"Arduino",url:"https://github.com/guimasan/EEO"},
+ {author:"guimasan",name:"T-box",desc:"Thermal Arduino incubator box",lang:"Arduino",url:"https://github.com/guimasan/T-box"},
+ {author:"guimasan",name:"DustDuinoGPRS",desc:"Usando GPRS Shield",lang:"Arduino",url:"https://github.com/guimasan/DustDuinoGPRS"},
+ {author:"guimasan",name:"redeinfoamazonia-debug-firmware",desc:"Debug firmware rede infoamazônia mãe d'água v1.0",lang:"C++",url:"https://github.com/guimasan/redeinfoamazonia-debug-firmware"},
+ {author:"guimasan",name:"DustDuinoWiFly",desc:"Fork OpenDustMap/DustDuinoWiFly",lang:"HTML",url:"https://github.com/guimasan/DustDuinoWiFly"},
+ {author:"guimasan",name:"rede-firmware",desc:"Fork InfoAmazonia/rede-firmware",lang:"C++",url:"https://github.com/guimasan/rede-firmware"}
+];
+const langs=[...new Set(projects.map(p=>p.lang))].sort();
+const filtersEl=document.getElementById('filters');
+let activeFilter='all';
+function buildFilters(){
+  const opts=['all',...langs];
+  filtersEl.innerHTML=opts.map(l=>`<button data-f="${l}" class="${l===activeFilter?'active':''}">${l==='all'?'Todos':l}</button>`).join('');
+  filtersEl.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.f;buildFilters();renderProjects();});
+}
+function thumbUrl(p){return `https://opengraph.githubassets.com/1/${p.author}/${p.name}`;}
+function renderProjects(){
+  const list=activeFilter==='all'?projects:projects.filter(p=>p.lang===activeFilter);
+  document.getElementById('projects').innerHTML=list.map(p=>`
+    <div class="card">
+      <div class="thumb"><img src="${thumbUrl(p)}" alt="${p.name}" onerror="this.style.display='none'"></div>
+      <div class="body">
+        <h3><a href="${p.url}" target="_blank">${p.name}</a></h3>
+        <p>${p.desc}</p>
+        <div class="meta"><span class="tag">${p.lang}</span><span class="tag">${p.author}</span></div>
+      </div>
+    </div>`).join('');
+}
+buildFilters();renderProjects();
+const html=document.documentElement;
+const saved=localStorage.getItem('theme'); if(saved) html.dataset.theme=saved;
+document.getElementById('themeToggle').onclick=()=>{const t=html.dataset.theme==='dark'?'light':'dark';html.dataset.theme=t;localStorage.setItem('theme',t);};
+const postsEl=document.getElementById('posts');
+fetch('https://gypsylab8.wordpress.com/feed/').then(r=>r.text()).then(txt=>{
+  const doc=new DOMParser().parseFromString(txt,'text/xml');
+  const items=[...doc.querySelectorAll('item')].slice(0,6);
+  if(!items.length) throw new Error('no items');
+  postsEl.innerHTML=items.map(it=>{
+    const title=it.querySelector('title')?.textContent||'';
+    const link=it.querySelector('link')?.textContent||'#';
+    const date=new Date(it.querySelector('pubDate')?.textContent||'').toLocaleDateString('pt-BR');
+    const desc=(it.querySelector('description')?.textContent||'').replace(/<[^>]+>/g,'').slice(0,160);
+    return `<div class="post"><a href="${link}" target="_blank">${title}</a><div class="date">${date}</div><p>${desc}…</p></div>`;
+  }).join('');
+}).catch(()=>{postsEl.innerHTML='<p>Não foi possível carregar os posts (CORS). <a href="https://gypsylab8.wordpress.com" target="_blank">Acesse o blog</a>.</p>';});
+</script>
+</body>
+</html>
+
